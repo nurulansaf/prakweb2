@@ -1,0 +1,64 @@
+echo "<hr>";
+echo '<div class="container">';
+echo "<h4>Hasil Registrasi :</h4>";
+echo "<hr>";
+echo "<table>";
+
+    echo "<div class='row'>";
+
+        echo "<div class='col-md-4'>";
+            echo "<tr>";
+            echo "<th> NIM </th>";
+            echo "<td> : $nim </td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<th> Nama </th>";
+            echo "<td> : $nama </td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<th> Jenis Kelamin </th>";
+            echo "<td> : $jk </td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<th> Program Studi </th>";
+            echo "<td> : $studi </td>";
+            echo "</tr>";
+        echo "</div>";
+
+        echo "<div class='col-md-4'>";
+            echo "<tr>";
+            echo "<th> Skill </th>";
+            echo "<td>  ";
+            foreach($skill as $value){
+                echo "</ul>";
+                echo "<li> $value </li>";
+                echo "</ul>";
+            }
+            echo "</td>";
+            echo "</tr>";
+        echo "</div>";
+
+        
+        echo "<div class='col-md-4'>";
+            echo "<tr>";
+            echo "<th> Skor Nilai </th>";
+            echo "<td> : $nilai </td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<th> Domisili </th>";
+            echo "<td> : $domisili </td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<th> Predikat </th>";
+            echo "<td> : $predikat </td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<th> Email </th>";
+            echo "<td> : $email </td>";
+            echo "</tr>";
+        echo "</div>";
+        
+    echo "</div>";
+
+echo "</table>";
+echo "</div>";
