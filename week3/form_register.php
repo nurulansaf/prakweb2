@@ -229,7 +229,7 @@
     // cetak ihasil input registrasi user
 
     echo "<hr>";
-    echo '<div class="container">';
+    echo '<div class="container">'; 
     echo "<h4>Hasil Registrasi :</h4>";
     echo "<hr>";
     echo "<table>";
