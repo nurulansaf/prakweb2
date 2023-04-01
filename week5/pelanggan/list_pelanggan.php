@@ -43,9 +43,7 @@
                         <td>
                             <a class="btn btn-sm mb-2 btn-primary" title="Detail" href="view_pelanggan.php?id=<?=$row['id']?>"><i class="bi bi-eye-fill"></i></a>
                             <a class="btn btn-sm mb-2 btn-success" title="Edit" href="edit_pelanggan.php?id=<?=$row['id']?>"><i class="bi bi-pencil-square"></i></a>
-                            <a class="btn btn-sm mb-2 btn-danger" title="Hapus" href="delete_pelanggan.php?id=<?=$row['id']?>"
-                            onclick="if(!confirm('Anda Yakin Hapus Data pelanggan <?=$row['nama']?>?')) {return false}"
-                            ><i class="bi bi-trash-fill"></i></a>
+                            <a class="btn btn-sm mb-2 btn-danger" title="Hapus" href="delete_pelanggan.php?id=<?=$row['id']?>"><i class="bi bi-trash-fill"></i></a>
                         </td>
                     </tr>
                 <?php 
