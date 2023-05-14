@@ -5,12 +5,19 @@
 <div class="content-wrapper">
     <div class="content">
         <div class="container pt-3">
-            <nav aria-label="breadcrumb mt-5 mb-3">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Produk</li>
-                </ol>
-            </nav>
+            <div class="row justify-content-between">
+                <div class="col-md-10">
+                    <nav aria-label="breadcrumb mt-5 mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Data Produk</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-2">
+                    <a class='btn  btn-primary' href='index.php?hal=produk_form'>+ Produk</a>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="table bg-white">
                     <thead>
@@ -40,9 +47,11 @@
                             <td><?= $v['harga_jual'] ?></td>
                             <td><?= $v['stok'] ?></td>
                             <td><?= $v['min_stok'] ?></td>
-                            <td><?= $v['jenis_produk_id'] ?></td>
-                            <td><a class='btn btn-sm btn-info' href='form_edit.php?id=$v["id"]'><i class="bi bi-pencil-square"></i></a>
-                            <a class='btn btn-sm btn-danger' href='produk.php?delete_produk=$v["id"]'><i class="bi bi-trash3-fill"></i></a></td>
+                            <td><?= $v['jenis'] ?></td>
+                            <td>
+                                <a class='btn btn-sm btn-success' href='ModeProduk.php?id=<?=$v["id"]?>'><i class="bi bi-eye-fill"></i></a>
+                                <a class='btn btn-sm btn-info' href='ModeProduk.php?id=<?=$v["id"]?>'><i class="bi bi-pencil-square"></i></a>
+                                <a class='btn btn-sm btn-danger' href='produk.php?delete_produk=<?=$v["id"]?>'><i class="bi bi-trash3-fill"></i></a></td>
                             </tr>
                             
 
