@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MahasiswaController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +49,22 @@ Route::get('/nf', function () {
 
 Route::get('/TugasTable', function () {
     return view('table');
+});
+
+// TUGAS W9
+Route::prefix('Mahasiswa')->group(function () {
+    Route::get('/', [MahasiswaController::class, 'index']);
+    Route::post('/output_form', [MahasiswaController::class, 'output_form']);
+});
+
+// dashboadr
+
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/produk', [ProdukController::class, 'index']);
+});
+
+Route::prefix('Publik')->group(function () {
+    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/tentang', [HomeController::class, 'tentang']);
 });
