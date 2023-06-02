@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PublikController;
 use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -65,6 +65,6 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('Publik')->group(function () {
-    Route::get('/', [HomeController::class, 'index']);
-    Route::get('/tentang', [HomeController::class, 'tentang']);
+    Route::get('/Home', [PublikController::class, 'index']);
+    Route::get('/tentang', [PublikController::class, 'tentangKami']);
 });
