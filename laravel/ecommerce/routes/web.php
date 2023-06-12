@@ -6,6 +6,11 @@ use App\Http\Controllers\PublikController;
 use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\InputController;
+use App\Http\Controllers\ForminputController;
+use App\Http\Controllers\KategoriProdukController;
+use App\Http\Controllers\PesananController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,3 +73,9 @@ Route::prefix('Publik')->group(function () {
     Route::get('/Home', [PublikController::class, 'index']);
     Route::get('/tentang', [PublikController::class, 'tentangKami']);
 });
+
+Route::get('/produk/create', [ProdukController::class, 'create']);
+Route::post('/produk/store', [ProdukController::class, 'store']); 
+Route::get('/produk/edit/{id}', [ProdukController::class, 'edit']); 
+Route::post('/produk/update/{id}', [ProdukController::class, 'update']); 
+Route::get('/produk/delete/{id}', [ProdukController::class, 'destroy']);

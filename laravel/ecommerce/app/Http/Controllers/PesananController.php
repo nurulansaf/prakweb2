@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Produk;
-use App\Models\KategoriProduk;
-use Illuminate\Support\Facades\DB;
+use App\Models\Pesanan;
 
-class ProdukController extends Controller
+
+class PesananController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $produk = new Produk();
-        return view('admin.produk.produk', ['produk' => $produk->getAllData()]);
+        $pesanan = new Pesanan();
+        return view('admin.produk.pesanan', ['pesanan' => $pesanan->getALLData()]);
     }
 
     /**
@@ -23,12 +22,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        // menampilkan seluruh data kategori produk
-        $kategori_produk = KategoriProduk::all();
-
-        // menampilkan seluruh data produk
-        $produk = Produk::all();
-        return view('admin.produk.create', compact('kategori_produk','produk'));
+        //
     }
 
     /**
@@ -58,9 +52,9 @@ class ProdukController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request, string $id)
     {
-        // 
+        //
     }
 
     /**
@@ -68,6 +62,6 @@ class ProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        // 
+        //
     }
 }
