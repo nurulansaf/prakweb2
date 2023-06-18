@@ -32,6 +32,89 @@
   </section>
   <!-- end banner -->
 
+  {{-- produk --}}
+  <section id="produk" class="section bg-white">
+    <div class="container">
+      <div class="row gy-10">
+        <div class="col-lg-12 order-lg-2">
+          <div class="row align-items-center mb-10 position-relative zindex-1">
+            <div class="col-md-7 col-xl-8 pe-xl-20">
+              <h2 class="display-6 mb-1">Produk <span class="span">Baru</span></h2>
+              <p class="mb-0 text-muted">Showing 1–9 of 30 results</p>
+            </div>
+            <!--/column -->
+            <div class="col-md-5 col-xl-4 ms-md-auto text-md-end mt-5 mt-md-0">
+              <div class="form-select-wrapper">
+                <select class="form-select">
+                  <option value="popularity">Sort by popularity</option>
+                  <option value="rating">Sort by average rating</option>
+                  <option value="newness">Sort by newness</option>
+                  <option value="price: low to high">Sort by price: low to high</option>
+                  <option value="price: high to low">Sort by price: high to low</option>
+                </select>
+              </div>
+              <!--/.form-select-wrapper -->
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+          <div class="mb-13">
+            <div class="row isotope">
+              
+              @foreach ($produk as $prod)
+              <div class=" col-md-3 col-xl-3">
+                <div class="project item shadow rounded p-2 position-relative">
+                  <figure class="rounded mb-6">
+                    <img src="https://www.tiffincurry.ca/wp-content/uploads/2021/02/default-product.png" srcset="https://www.tiffincurry.ca/wp-content/uploads/2021/02/default-product.png" alt="">
+                    <a class="item-like" href="#" data-bs-toggle="white-tooltip" aria-label="Add to wishlist" data-bs-original-title="Add to wishlist"><i class="uil uil-heart"></i></a>
+                    <a class="item-view" href="#" data-bs-toggle="white-tooltip" aria-label="Quick view" data-bs-original-title="Quick view"><i class="uil uil-eye"></i></a>
+                    <a href="#" class="item-cart rounded"><i class="uil uil-shopping-bag"></i> Add to Cart</a>
+                    <span class="avatar bg-pink text-white w-10 h-10 position-absolute text-uppercase fs-13" style="top: 1rem; left: 1rem;"><span>Sale!</span></span>
+                  </figure>
+                  <div class="post-header">
+                    <div class="d-flex flex-row align-items-center justify-content-between mb-2">
+                      <div class="post-category text-ash mb-0">{{ $prod->nama_kategori }}</div>
+                      <span class="ratings five"></span>
+                    </div>
+                    <h2 class="post-title h3 fs-22"><a href="./shop-product.html" class="link-dark">{{ $prod->nama }}</a></h2>
+                    <p class="price"><del><span class="amount">{{ $prod->harga_jual }}</span></del> </p>
+                  </div>
+                  <!-- /.post-header -->
+                </div>
+              </div>
+              @endforeach
+              <!-- /.item -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.grid -->
+          <nav class="d-flex" aria-label="pagination">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true"><i class="uil uil-arrow-left"></i></span>
+                </a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true"><i class="uil uil-arrow-right"></i></span>
+                </a>
+              </li>
+            </ul>
+            <!-- /.pagination -->
+          </nav>
+          <!-- /nav -->
+        </div>
+        <!-- /column -->
+      </div>
+    </div>
+    <!-- /.container -->
+  </section>
+
+  {{-- tentang --}}
   <section id="tentang" class="section bg-pattern-3">
     <div class="container">
       <div class="row align-items-center">
@@ -68,6 +151,7 @@
       <!--/.row -->
     </div>
   </section>
+
   
   <!-- layanan -->
   <section id="layanan" class="section bg-white">

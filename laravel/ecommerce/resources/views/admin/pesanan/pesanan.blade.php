@@ -8,52 +8,52 @@ semua code yang ada di dalam file yang di extends -->
 
 @section('content')
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Data Produk</h1>
+    <h1 class="mt-4">Data Pesanan</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active">Produk</li>
+        <li class="breadcrumb-item active">Pesanan</li>
     </ol>
     <div class="card mb-4">
         <div class="card-header">
-            <a href="{{ url('admin/addproduk') }}" class="btn btn-primary">Tambah Data</a>
+            <a href="{{ url('admin/addpesanan') }}" class="btn btn-primary">Tambah Data</a>
         </div>
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-            Data Produk
+            Data Pesanan
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Kode</th>
+                        <th>Tanggal</th>
                         <th>Nama</th>
-                        <th>Harga Jual</th>
-                        <th>Harga Beli</th>
-                        <th>Stok</th>
-                        <th>Minimal Stok</th>
+                        <th>Alamat</th>
+                        <th>No Hp</th>
+                        <th>Email</th>
+                        <th>Jumlah</th>
                         <th>Deskripsi</th>
-                        <th>Kategori Produk</th>
-                        <th>Action</th>
+                        <th>Produk</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @php
                         $no = 1;
                     @endphp
-                    @foreach ($produk as $prod)
+                    @foreach ($pesanan as $item)
                     <tr>
                         <td>{{ $no }}</td>
-                        <td>{{ $prod->kode }}</td>
-                        <td>{{ $prod->nama }}</td>
-                        <td>{{ $prod->harga_jual }}</td>
-                        <td>{{ $prod->harga_beli }}</td>
-                        <td>{{ $prod->stok }}</td>
-                        <td>{{ $prod->min_stok }}</td>
-                        <td>{{ $prod->deskripsi }}</td>
-                        <td>{{ $prod->nama_kategori }}</td>
-                        <td><a href="{{ url('admin/editproduk/'. $prod->id) }}" class="btn btn-success">Edit</a></td>
-                        <td><a href="{{ url('admin/deleteproduk/'. $prod->id) }}" class="btn btn-danger">Delete</a></td>
+                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ $item->nama_pemesan }}</td>
+                        <td>{{ $item->alamat_pemesan }}</td>
+                        <td>{{ $item->no_hp }}</td>
+                        <td>{{ $item->email }}</td>
+                        <td>{{ $item->jumlah_pesanan }}</td>
+                        <td>{{ $item->deskripsi }}</td>
+                        <td>{{ $item->nama_produk }}</td>
+                        <td><a href="{{ url('admin/editpesanan/'. $item->id) }}" class="btn btn-success">Edit</a></td>
+                        <td><a href="{{ url('admin/deletepesanan/'. $item->id) }}" class="btn btn-danger">Delete</a></td>
                     </tr>
                     @php
                         $no++

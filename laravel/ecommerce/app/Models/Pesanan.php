@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 class Pesanan extends Model
 {
     use HasFactory;
+
     protected $table = 'pesanan';
 
     public $timestamps = false;
-
     protected $primarykey = 'id';
 
     protected $fillable = [
@@ -30,7 +30,7 @@ class Pesanan extends Model
         return $this->belongTo(Produk::class);
     }
 
-    public function getALLData(){
+    public function getAllData(){
         $alldata = DB::table('pesanan')
         ->join('produk', 'pesanan.produk_id', '=', 'produk.id')
         ->select('pesanan.*', 'produk.nama as nama_produk')

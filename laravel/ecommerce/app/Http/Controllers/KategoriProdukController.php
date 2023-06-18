@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KategoriProduk;
-
+use Illuminate\Support\Facades\DB;
 
 class KategoriProdukController extends Controller
 {
@@ -14,7 +14,7 @@ class KategoriProdukController extends Controller
     public function index()
     {
         $kategori_produk = new KategoriProduk();
-        return view('admin.produk.kategori_produk', ['kategori_produk' => $kategori_produk->getALLData()]);
+        return view('admin.kategori.kategori_produk', ['kategori_produk' => $kategori_produk->getALLData()]);
     }
 
     /**
@@ -23,6 +23,9 @@ class KategoriProdukController extends Controller
     public function create()
     {
         //
+        // menampilkan seluruh data kategori produk
+        $kategori_produk = KategoriProduk::all();
+        return view('admin.kategori.add_kategoriproduk', compact('kategori_produk'));
     }
 
     /**
@@ -31,6 +34,17 @@ class KategoriProdukController extends Controller
     public function store(Request $request)
     {
         // 
+         // buat instance di ambil dari class produk
+        // ambil daata di input di form create menggunakan parameter request
+        // simpan data yang di ambil ke dalam colom table produk
+        // save semua data ke dalam instance produk menggunakan method save
+        // kembalikan ke tampilan produk, setelah klik button submit 
+
+        $kat = new KategoriProduk();
+        $kat->nama = $request->nama;
+
+        $kat->save();
+        return redirect('admin/kategoriproduk');
     }
 
     /**
@@ -62,6 +76,10 @@ class KategoriProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // buka tbale produk
+        // cari data yang ingn di hapus berdasarkan id
+        // hapus data menggunakan method delete()
+        DB::table('kategori_produk')->where('id', $id)->delete();
+        return redirect('admin/kategoriproduk');
     }
 }

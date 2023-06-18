@@ -9,6 +9,9 @@
 
     <div class="card mb-4">
         <div class="card-header">
+            <a href="{{ url('admin/addkategoriproduk') }}" class="btn btn-primary">Tambah Data</a>
+        </div>
+        <div class="card-header">
             <i class="fas fa-table me-1"></i>
             Data Kategori Produk
         </div>
@@ -18,6 +21,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +32,7 @@
                     <tr>
                         <td>{{ $no }}</td>
                         <td>{{ $katprod->nama }}</td>
+                        <td><a href="{{ url('admin/deletekategoriproduk/'. $katprod->id) }}" class="btn btn-danger">Delete</a></td>
                     </tr>
                     @php
                         $no++

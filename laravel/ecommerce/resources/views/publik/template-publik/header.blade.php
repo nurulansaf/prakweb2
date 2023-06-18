@@ -53,6 +53,9 @@
                   <a class="nav-link" href="{{url('Publik/tentang')}}">Tentang Kami</a>
                 </li>
                 <li class="nav-item dropdown">
+                  <a class="nav-link" href="#produk">Produk</a>
+                </li>
+                <li class="nav-item dropdown">
                   <a class="nav-link" href="#layanan">Layanan</a>
                 </li>
                 <li class="nav-item">
@@ -87,9 +90,41 @@
           <!-- /.navbar-collapse -->
           <div class="navbar-other w-100 d-flex ms-auto">
             <ul class="navbar-nav flex-row align-items-center ms-auto">
-              <li class="nav-item d-none d-md-block">
+              {{-- <li class="nav-item d-none d-md-block">
                 <a href="https://api.whatsapp.com/send?phone=081234567890&text=Halo%2C+Saya+butuh+bantuan" target="_blank" class="btn-wa rounded"><i class='bx bxl-whatsapp'></i> 0812 3456 7890</a>
-              </li>
+              </li> --}}
+                @guest
+                  @if (Route::has('login'))
+                  <li class="nav-item d-none d-md-block">
+                    <a href="{{ route('login') }}" class="btn btn-wa btn-sm rounded"> Sign In</a>
+                  </li>
+                  @endif
+                  @if (Route::has('register'))
+                  <li class="nav-item d-none d-md-block">
+                    <a href="{{ route('register') }}" class="btn btn-warning btn-sm rounded"> Sign Up</a>
+                  </li>
+                  @endif
+
+                  @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                  
+                @endguest
               <li class="nav-item d-lg-none">
                 <button class="hamburger offcanvas-nav-btn"><span></span></button>
               </li>

@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 class Produk extends Model
 {
     use HasFactory;
+
     protected $table = 'produk';
 
     public $timestamps = false;
-    
     protected $primarykey = 'id';
 
     protected $fillable = [
@@ -27,13 +27,13 @@ class Produk extends Model
     ];
 
     public function kategori_produk(){
-        return $this->belongsTo(KategoriProduk::class);
+        return $this->belongTo(KategoriProduk::class);
     }
 
     public function getAllData(){
         $alldata = DB::table('produk')
-        ->join ('kategori_produk','produk.kategori_produk_id','=','kategori_produk.id')
-        ->select('produk.*','kategori_produk.nama as nama_kategori')
+        ->join('kategori_produk', 'produk.kategori_produk_id', '=', 'kategori_produk.id')
+        ->select('produk.*', 'kategori_produk.nama as nama_kategori')
         ->get();
         return $alldata;
     }

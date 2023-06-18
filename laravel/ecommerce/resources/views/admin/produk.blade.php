@@ -8,7 +8,7 @@ semua code yang ada di dalam file yang di extends -->
 
 @section('content')
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Tables</h1>
+    <h1 class="mt-4">Data Produk</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Dashboard</a></li>
         <li class="breadcrumb-item active">Produk</li>
